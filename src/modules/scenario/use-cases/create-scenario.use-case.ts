@@ -12,6 +12,7 @@ import { CreateScenarioDto } from "../dto/create-scenario.dto";
         async execute(data: CreateScenarioDto) {
        try {
          const scenario = await this.createScenarioRepository.create(data);
+         
          return scenario;
        } catch (error) {
          this.logger.error(error);
@@ -19,3 +20,5 @@ import { CreateScenarioDto } from "../dto/create-scenario.dto";
        }
    }
   }
+
+
