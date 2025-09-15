@@ -6,13 +6,16 @@ import { CreateScenarioDto } from './dto/create-scenario.dto';
 import { UpdateScenarioDto } from './dto/update-scenario.dto';
 import { CreateScenarioUseCase } from './use-cases/create-scenario.use-case';
 import { ListScenarioUseCase } from './use-cases/list-scenario.use-case';
-import { FindOneScenarioUseCase } from './use-cases';
+import { FindOneScenarioUseCase, UpdateScenarioUseCase } from './use-cases';
+import { DeleteScenarioUseCase } from './use-cases/delete-scenario.use-case';
 
 @Injectable()
 export class ScenarioService {
  constructor(private readonly createScenarioUseCase: CreateScenarioUseCase, 
   private readonly listScenarioUseCase: ListScenarioUseCase, 
-  private readonly findoneScenarioUseCase: FindOneScenarioUseCase) {} 
+  private readonly findoneScenarioUseCase: FindOneScenarioUseCase,
+  private readonly updateScenarioUseCase: UpdateScenarioUseCase,
+  private readonly deleteScenarioUseCase: DeleteScenarioUseCase) {} 
   create(data: CreateScenarioDto) {
     return this.createScenarioUseCase.execute(data);
   }
@@ -25,11 +28,11 @@ export class ScenarioService {
     return this.findoneScenarioUseCase.findone(id);
   }
 
-  update(id: number,updateScenarioDto: UpdateScenarioDto) {
-    return `This action updates a #${id} scenario`;
+  update(id: string , data: UpdateScenarioDto) {
+    return this.updateScenarioUseCase.update(id, data);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} scenario`;
+  remove(id: string) {
+    return this.deleteScenarioUseCase.delete(id);
   }
 }
