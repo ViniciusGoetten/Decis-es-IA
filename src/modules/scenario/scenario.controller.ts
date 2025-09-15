@@ -1,3 +1,6 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable prettier/prettier */
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { ScenarioService } from './scenario.service';
 import { CreateScenarioDto } from './dto/create-scenario.dto';
@@ -19,7 +22,7 @@ export class ScenarioController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.scenarioService.findOne(+id);
+    return this.scenarioService.findOne(id);
   }
 
   @Patch(':id')

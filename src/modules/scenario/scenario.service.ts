@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
@@ -5,10 +6,13 @@ import { CreateScenarioDto } from './dto/create-scenario.dto';
 import { UpdateScenarioDto } from './dto/update-scenario.dto';
 import { CreateScenarioUseCase } from './use-cases/create-scenario.use-case';
 import { ListScenarioUseCase } from './use-cases/list-scenario.use-case';
+import { FindOneScenarioUseCase } from './use-cases';
 
 @Injectable()
 export class ScenarioService {
- constructor(private readonly createScenarioUseCase: CreateScenarioUseCase, private readonly listScenarioUseCase: ListScenarioUseCase) {} 
+ constructor(private readonly createScenarioUseCase: CreateScenarioUseCase, 
+  private readonly listScenarioUseCase: ListScenarioUseCase, 
+  private readonly findoneScenarioUseCase: FindOneScenarioUseCase) {} 
   create(data: CreateScenarioDto) {
     return this.createScenarioUseCase.execute(data);
   }
@@ -17,8 +21,8 @@ export class ScenarioService {
     return this.listScenarioUseCase.execute();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} scenario`;
+  findOne(id: string) {
+    return this.findoneScenarioUseCase.findone(id);
   }
 
   update(id: number,updateScenarioDto: UpdateScenarioDto) {
