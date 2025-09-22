@@ -1,0 +1,14 @@
+/* eslint-disable prettier/prettier */
+import { Injectable } from '@nestjs/common';
+import { PrismaService } from "src/shared/database/prisma.database";
+
+/* eslint-disable prettier/prettier */
+@Injectable()
+ export class FindOneOptionRepository {
+    constructor(private readonly prisma: PrismaService) {}
+
+    async findone(id:string) {
+         const option = await this.prisma.option.findUnique({ where: {id}});
+         return option;
+    }
+ }
