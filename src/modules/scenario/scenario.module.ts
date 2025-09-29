@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Logger, Module } from '@nestjs/common';
 import { ScenarioService } from './scenario.service';
 import { ScenarioController } from './scenario.controller';
@@ -15,4 +14,4 @@ const repositories = Object.values(Repositories);
   controllers: [ScenarioController],
   providers: [ScenarioService, ...useCases, ...repositories, Logger],
 })
-export class ScenarioModule {}
+export class ScenarioModule { }

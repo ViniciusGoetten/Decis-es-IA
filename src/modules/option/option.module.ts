@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Logger, Module } from '@nestjs/common';
-import { OptionService } from '../option/option.service';
-import { OptionController } from '../option/option.controller';
+import { OptionService } from './option.service';
+import { OptionController } from './option.controller';
 import * as UseCases from './use-cases';
 import * as Repositories from './repository';
 import { SharedModule } from 'src/shared/shared.module';
@@ -14,4 +14,4 @@ const repositories = Object.values(Repositories);
   controllers: [OptionController],
   providers: [OptionService, ...useCases, ...repositories, Logger],
 })
-export class OptionModule {}
+export class OptionModule { }

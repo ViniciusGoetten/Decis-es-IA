@@ -1,7 +1,8 @@
 /* eslint-disable prettier/prettier */
-import { Injectable, Logger, } from '@nestjs/common';
-import { UpdateScenarioDto } from '../dto/update-scenario.dto';
+import { Injectable, Logger } from '@nestjs/common';
 import { UpdateScenarioRepository } from '../repository/update-scenario.repository';
+import { UpdateScenarioDto } from '../dto/update-scenario.dto';
+
 @Injectable()
 export class UpdateScenarioUseCase {
     constructor(
@@ -12,12 +13,11 @@ export class UpdateScenarioUseCase {
     async update(id:string, data: UpdateScenarioDto) {
         try {
             const scenario = await this.updateScenarioRepository.update(id,data);
-              this.logger.log("O Scenario foi atualizado com sucesso");
+            this.logger.log("Scenario updated successfully");
             return scenario;
         } catch (error) {
             this.logger.error(error);
             throw error;
-            }
-            
         }
     }
+}

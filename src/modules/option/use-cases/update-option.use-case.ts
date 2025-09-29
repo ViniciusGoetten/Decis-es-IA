@@ -1,7 +1,8 @@
 /* eslint-disable prettier/prettier */
-import { Injectable, Logger, } from '@nestjs/common';
-import { UpdateOptionRepository } from '../repository';
+import { Injectable, Logger } from '@nestjs/common';
+import { UpdateOptionRepository } from '../repository/update-option.repository';
 import { UpdateOptionDto } from '../dto/update-option.dto';
+
 @Injectable()
 export class UpdateOptionUseCase {
     constructor(
@@ -12,12 +13,11 @@ export class UpdateOptionUseCase {
     async update(id:string, data: UpdateOptionDto) {
         try {
             const option = await this.updateOptionRepository.update(id,data);
-              this.logger.log("O Option foi atualizado com sucesso");
+            this.logger.log("Option updated successfully");
             return option;
         } catch (error) {
             this.logger.error(error);
             throw error;
-            }
-            
         }
     }
+}

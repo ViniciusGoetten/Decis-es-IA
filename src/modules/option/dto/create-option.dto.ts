@@ -2,6 +2,6 @@
 export class CreateOptionDto {
     name: string;
     description: string;
-    ScenarioId: string;
-  }
-  
+    scenarioId: string;
+    // Scores: Score[]
+}

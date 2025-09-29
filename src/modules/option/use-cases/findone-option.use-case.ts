@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Injectable, Logger, NotFoundException } from '@nestjs/common';
-import { FindOneOptionRepository } from '../repository';
+import { FindOneOptionRepository } from '../repository/findone-option.repository';
 
 @Injectable()
 export class FindOneOptionUseCase {
@@ -12,12 +12,12 @@ export class FindOneOptionUseCase {
     async findone(id:string) {
         try {
             const option = await this.findoneOptionRepository.findone(id);
-            this.logger.log("O Option foi encontrado com sucesso");
-            if (!option) return new NotFoundException("Scenario não encontrado");
+            this.logger.log("Option found successfully");
+            if (!option) return new NotFoundException("Option not found");
             return option;
         } catch (error) {
             if (error instanceof NotFoundException) {
-                this.logger.warn("option não encontrado");
+                this.logger.warn("Option not found");
             }
             this.logger.error(error);
             throw error;

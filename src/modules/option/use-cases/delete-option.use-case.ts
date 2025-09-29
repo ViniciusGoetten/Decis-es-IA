@@ -1,7 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Injectable, Logger } from '@nestjs/common';
-import { DeleteOptionRepository } from '../repository';
-
+import { DeleteOptionRepository } from '../repository/delete-option.repository';
 
 @Injectable()
 export class DeleteOptionUseCase {
