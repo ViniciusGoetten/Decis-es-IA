@@ -1,7 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Injectable, NotFoundException } from "@nestjs/common";
-import { PrismaService } from "../../../shared/databases/prisma.database";
-
+import { PrismaService } from "src/shared/database/prisma.database";
 @Injectable()
 export class ListScoreRepository {
     constructor(private readonly prisma: PrismaService) { }

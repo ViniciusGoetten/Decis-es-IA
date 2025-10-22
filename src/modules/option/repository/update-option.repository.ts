@@ -1,4 +1,6 @@
 /* eslint-disable prettier/prettier */
+
+/* eslint-disable prettier/prettier */
 import { Injectable } from "@nestjs/common";
 import { PrismaService } from "src/shared/database/prisma.database";
 import { UpdateOptionDto } from "../dto/update-option.dto";

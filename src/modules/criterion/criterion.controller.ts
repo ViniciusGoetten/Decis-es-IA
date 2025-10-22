@@ -11,6 +11,7 @@ export class CriterionController {
   @Post()
   create(@Body() createCriterionDto: CreateCriterionDto) {
     return this.criterionService.create(createCriterionDto);
+    
   }
 
   @Get()

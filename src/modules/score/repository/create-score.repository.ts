@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Injectable } from "@nestjs/common";
-import { PrismaService } from "../../../shared/databases/prisma.database";
+import { PrismaService } from "src/shared/database/prisma.database";
 import { CreateScoreDto } from "../dto/create-score.dto";
 
 @Injectable()
